@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<auctionCatalog>
+    <item nr="1">
+        <description>Baby Phone</description>
+        <minimumPrice>10.0</minimumPrice>
+    </item>
+    <item nr="2">
+        <description>Lawn Mower</description>
+        <minimumPrice>50.0</minimumPrice>
+    </item>
+    <item nr="3">
+        <description>Exam Solution</description>
+        <minimumPrice>200.0</minimumPrice>
+    </item>
+</auctionCatalog>
