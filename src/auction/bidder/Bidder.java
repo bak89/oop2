@@ -1,5 +1,7 @@
 package auction.bidder;
 
+import auction.catalog.Auction;
+
 public abstract class Bidder {
 
 	private String name;
@@ -8,7 +10,11 @@ public abstract class Bidder {
 		this.name = name;
 	}
 
-	public String getName() {
+	public Bidder(String s, Auction auction) {
+
+	}
+
+    public String getName() {
 		return name;
 	}
 }

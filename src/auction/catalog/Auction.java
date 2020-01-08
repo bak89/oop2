@@ -3,13 +3,24 @@ package auction.catalog;
 import auction.bidder.Bidder;
 import auction.domain.AuctionStatus;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.time.LocalTime;
 
-public class Auction {
+//all in one thread
+public class Auction implements Runnable {
     private long duration;
+    private int sec;
     private LocalTime endTime;
     private AuctionStatus status;
     private AuctionItem item;
+    private Thread thread;
+    private PropertyChangeSupport changeSupport;
+
+    public Auction(AuctionItem auctionItem, int i) {
+        this.item = auctionItem;
+        this.changeSupport = new PropertyChangeSupport(this);
+    }
 
     public long getDuration() {
         return duration;
@@ -27,48 +38,56 @@ public class Auction {
         return item;
     }
 
-    public Auction(LocalTime endTime, AuctionItem item) {
+    public final boolean isRunning() {
+        return thread != null;
+    }
+
+   /* public Auction(LocalTime endTime, AuctionItem item) {
         this.endTime = endTime;
         this.status = AuctionStatus.CREATED;
         this.item = item;
-    }
+    }*/
 
+    /***
+     * change status from not-active to active
+     */
     public void start() {
-        //cambia lo status da non attivo in attivo(e anche il label status)
-        status = AuctionStatus.CREATED;
-        getRemainingTime();
-    }
-
-    public int getRemainingTime() {
-        //se non lavora null
-
-        //cambia lo status in running
-        status = AuctionStatus.RUNNING;
-
-        LocalTime remainingTime = LocalTime.now();
-        endTime = remainingTime.plusMinutes(1);
-        //print endTime to label!
-
-        int remTime = 0;
-
-        while (remainingTime == endTime) {
-            remainingTime = remainingTime.plusSeconds(1);
-            //print remTime to label!
-            int end = endTime.getSecond();
-            int rem = remainingTime.getSecond();
-            remTime = end - rem;
-            System.out.println(remTime);
+        if (thread == null) {
+            thread = new Thread(this);
+            thread.setDaemon(true);
+            thread.start();
+            status = AuctionStatus.CREATED;
+            changeSupport.firePropertyChange("start", "", getRemainingTime());
         }
-      //  end();
+    }
 
-        return remTime;
+    /***
+     * if not working return null
+     * else return duration
+     */
+    public long getRemainingTime() {
+        if (status.equals(AuctionStatus.CREATED)) {
+            //change status
+            status = AuctionStatus.RUNNING;
+            LocalTime remainingTime = LocalTime.now();
+            duration = remainingTime.getSecond();
+            endTime = remainingTime.plusMinutes(1);
+            return duration;
+        } else {
+            return Long.parseLong(null);
+        }
 
     }
 
+    /**
+     * stop the thread and change the status
+     */
     public void end() {
-        //cambia lo status
-        status = AuctionStatus.ENDED;
-        //stoppa il timer local time
+        if (thread != null) {
+            thread = null;
+            status = AuctionStatus.ENDED;
+        }
+        changeSupport.firePropertyChange("end", "", getRemainingTime());
     }
 
     public Bidder register(Bidder bidder) {
@@ -82,5 +101,23 @@ public class Auction {
         return b;
     }
 
+    @Override
+    public void run() {
+        while (thread != null) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                //
+            }
+            if (thread != null) {
+                duration++;
+                changeSupport.firePropertyChange("time", "", getRemainingTime());
+            }
+        }
 
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
+    }
 }

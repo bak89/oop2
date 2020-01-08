@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f567ff3-75c3-417a-bb02-4d0add3227fe" name="Default Changelist" comment="" />
+    <list default="true" id="2f567ff3-75c3-417a-bb02-4d0add3227fe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/auction/catalog/InvalidBidException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/auction.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auction/bidder/Bidder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/auction/bidder/Bidder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auction/catalog/Auction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/auction/catalog/Auction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auction/gui/AuctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/auction/gui/AuctionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auction/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/auction/gui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/auction/domain/AuctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/auction/domain/AuctionTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1VcK1R46KNCAmYgKNgu4WXOsjmb" />
   <component name="ProjectViewState">
@@ -23,12 +43,34 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kunze2" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../javafx-sdk-11.0.2/lib/src.zip!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="auction.catalog" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="auction.catalog" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -44,10 +86,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in auction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuctionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="auction" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="auction.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="auction.domain" />
+      <option name="MAIN_CLASS_NAME" value="auction.domain.AuctionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuctionTest.testAuctionCreated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="auction" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="auction.catalog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="auction.catalog" />
+      <option name="MAIN_CLASS_NAME" value="auction.catalog.AuctionTest" />
+      <option name="METHOD_NAME" value="testAuctionCreated" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuctionTest.testAuctionRunning" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="auction" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="auction.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="auction.domain" />
+      <option name="MAIN_CLASS_NAME" value="auction.domain.AuctionTest" />
+      <option name="METHOD_NAME" value="testAuctionRunning" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuctionTest.testBid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="auction" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="auction.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="auction.domain" />
+      <option name="MAIN_CLASS_NAME" value="auction.domain.AuctionTest" />
+      <option name="METHOD_NAME" value="testBid" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -55,7 +152,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.All in auction" />
+        <item itemvalue="JUnit.AuctionTest.testAuctionRunning" />
+        <item itemvalue="JUnit.AuctionTest.testBid" />
+        <item itemvalue="JUnit.AuctionTest" />
+        <item itemvalue="JUnit.AuctionTest.testAuctionCreated" />
       </list>
     </recent_temporary>
   </component>
@@ -87,6 +187,10 @@
       <workItem from="1577627640531" duration="7182000" />
       <workItem from="1577642474916" duration="634000" />
       <workItem from="1577729350689" duration="2333000" />
+      <workItem from="1577732405339" duration="1566000" />
+      <workItem from="1578157135330" duration="665000" />
+      <workItem from="1578157911919" duration="882000" />
+      <workItem from="1578509959108" duration="5008000" />
     </task>
     <servers />
   </component>
@@ -94,18 +198,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="557" y="190" key="#All_in_auction" timestamp="1577553972579">
+    <state x="557" y="190" key="#All_in_auction" timestamp="1578509966141">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="557" y="190" key="#All_in_auction/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577553972579" />
+    <state x="557" y="190" key="#All_in_auction/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578509966141" />
+    <state x="557" y="214" key="#AuctionTest" timestamp="1577733027425">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="557" y="214" key="#AuctionTest/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577733027425" />
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577553913996">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577553913996" />
-    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1577730122886">
+    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1578513672353">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577730122886" />
+    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578513672353" />
     <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577546767588">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -114,30 +222,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577550174435" />
-    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1577553979511">
+    <state x="714" y="236" key="DetectedRootsChooserDialog" timestamp="1578510216946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577553979511" />
-    <state width="1877" height="254" key="GridCell.Tab.0.bottom" timestamp="1577731801007">
+    <state x="714" y="236" key="DetectedRootsChooserDialog/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578510216946" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1578510214054">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="254" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577731801007" />
-    <state width="1877" height="254" key="GridCell.Tab.0.center" timestamp="1577731801007">
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578510214054" />
+    <state width="1877" height="254" key="GridCell.Tab.0.bottom" timestamp="1578514556361">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="254" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577731801007" />
-    <state width="1877" height="254" key="GridCell.Tab.0.left" timestamp="1577731801007">
+    <state width="1877" height="254" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578514556361" />
+    <state width="1877" height="254" key="GridCell.Tab.0.center" timestamp="1578514556360">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="254" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577731801007" />
-    <state width="1877" height="254" key="GridCell.Tab.0.right" timestamp="1577731801007">
+    <state width="1877" height="254" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578514556360" />
+    <state width="1877" height="254" key="GridCell.Tab.0.left" timestamp="1578514556360">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="254" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577731801007" />
-    <state x="1920" y="0" width="1550" height="976" key="dock-window-1" timestamp="1577729483012">
+    <state width="1877" height="254" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578514556360" />
+    <state width="1877" height="254" key="GridCell.Tab.0.right" timestamp="1578514556360">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="254" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578514556360" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1578158794571">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578158794571" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1578158794571">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578158794571" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1578158794571">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578158794571" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1578158794571">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578158794571" />
+    <state x="440" y="95" key="SettingsEditor" timestamp="1578510226679">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578510226679" />
+    <state x="665" y="414" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1577732990297">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="665" y="414" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577732990297" />
+    <state x="731" y="224" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1578158197111">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="731" y="224" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578158197111" />
+    <state x="1920" y="28" width="1550" height="742" maximized="true" key="dock-window-1" timestamp="1578512861165">
       <screen x="1920" y="0" width="1536" height="920" />
     </state>
-    <state x="1920" y="0" width="1550" height="976" key="dock-window-1/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577729483012" />
+    <state x="1920" y="28" width="1550" height="742" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578512861165" />
+    <state x="702" y="149" key="refactoring.ChangeSignatureDialog" timestamp="1578158293207">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="702" y="149" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578158293207" />
   </component>
   <component name="com.vaadin.designer2.intellij.settings.SizePresetsSettingsComponent">
     <option name="sizePresets">
