@@ -17,7 +17,7 @@ import java.time.LocalTime;
 
 public class AuctionController implements PropertyChangeListener {
 
-    private Auction auction;
+    private Auction auction = null;
 
     @FXML
     public Label status;
@@ -39,31 +39,25 @@ public class AuctionController implements PropertyChangeListener {
         AuctionCatalog catalog = AuctionCatalogDAO.loadCatalog();
         catalog.getItems().forEach(item -> auctionItems.getItems().add(item));
         auctionItems.getSelectionModel().select(0);
+        startAuctionButton.setOnAction(click -> {
+            startAuctionButton.setDisable(true);
+            startAuction();
+        });
     }
 
     @FXML
     public void startAuction() {
-        startAuctionButton.setOnAction(click -> {
-            status.setText(String.valueOf(AuctionStatus.CREATED));
-            auction.start();
-            status.setText(String.valueOf(auction.getStatus()));
+        assert this.auction == null;
+        LocalTime endTime = LocalTime.now().plusMinutes(1);
+        AuctionItem selectedAuctionItem = auctionItems.getSelectionModel().getSelectedItem();
+        this.auction = new Auction(endTime, selectedAuctionItem);
+        this.auction.addPropertyChangeListener(this);
 
+        this.endTime.setText(endTime.toString());
+        this.status.setText(String.valueOf(this.auction.getStatus()));
+        this.remTime.setText(String.valueOf(this.auction.getRemainingTime()));
 
-            // AuctionItem selectedAuctionItem = auctionItems.getSelectionModel().getSelectedItem();
-            //Auction test = new Auction(LocalTime.now(), auctionItems.getItems().get(1));
-            //  remTime.setText(String.valueOf(test.getRemainingTime()));
-            endTime.setText(String.valueOf(LocalTime.now().plusMinutes(1)));
-
-
-            status.setText(String.valueOf(AuctionStatus.RUNNING));
-            /*LocalTime remainingTime = LocalTime.now();
-            LocalTime endOFTime = remainingTime.plusMinutes(1);
-            endTime.setText(String.valueOf(endOFTime));
-
-           */
-
-
-        });
+        this.auction.start();
     }
 
     @FXML
@@ -78,12 +72,20 @@ public class AuctionController implements PropertyChangeListener {
     }
 
     @Override
-    public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                startAuctionButton.setDisable(auction.isRunning());
-                placeBidButton.setDisable(!auction.isRunning());
+    public void propertyChange(PropertyChangeEvent evt) {
+        Platform.runLater(() -> {
+            switch (evt.getPropertyName()) {
+                case "status":
+                    this.status.setText(evt.getNewValue().toString());
+                    this.startAuctionButton.setDisable(evt.getNewValue() == AuctionStatus.RUNNING);
+                    this.placeBidButton.setDisable(evt.getNewValue() != AuctionStatus.RUNNING);
+                    break;
+                case "remainingTime":
+                    this.remTime.setText(evt.getNewValue().toString());
+                    break;
+                case "bid":
+                    this.currentBid.setText(evt.getNewValue().toString());
+                    break;
             }
         });
 

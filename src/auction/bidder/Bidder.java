@@ -17,4 +17,6 @@ public abstract class Bidder {
     public String getName() {
 		return name;
 	}
+
+	public abstract void auctionChanged();
 }

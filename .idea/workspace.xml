@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f567ff3-75c3-417a-bb02-4d0add3227fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auction/catalog/InvalidBidException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/auction.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/auction/bidder/Bidder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/auction/bidder/Bidder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/auction/catalog/Auction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/auction/catalog/Auction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auction/domain/InvalidBidException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/auction/gui/AuctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/auction/gui/AuctionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auction/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/auction/gui/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/auction/domain/AuctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/auction/domain/AuctionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -193,10 +190,22 @@
       <workItem from="1578157911919" duration="882000" />
       <workItem from="1578509959108" duration="5008000" />
     </task>
+    <task id="LOCAL-00001" summary="test1">
+      <created>1579726814243</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579726814243</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test1" />
+    <option name="LAST_COMMIT_MESSAGE" value="test1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="557" y="190" key="#All_in_auction" timestamp="1578509966141">
@@ -215,37 +224,51 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578513672353" />
-    <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577546767588">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="646" y="325" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1579726849500">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="646" y="325" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1579726849500" />
     <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577546767588" />
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577550174435">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="552" y="212" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579729547921">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="552" y="212" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1579729547921" />
     <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1577550174435" />
+    <state x="379" y="4" key="CommitChangelistDialog2" timestamp="1579726813649">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="379" y="4" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1579726813649" />
     <state x="714" y="236" key="DetectedRootsChooserDialog" timestamp="1578510216946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="714" y="236" key="DetectedRootsChooserDialog/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578510216946" />
+    <state x="147" y="70" key="DiffContextDialog" timestamp="1579726805560">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="70" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1579726805560" />
     <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1578510214054">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578510214054" />
-    <state width="1877" height="254" key="GridCell.Tab.0.bottom" timestamp="1578514556361">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1579731723129">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579731723129" />
     <state width="1877" height="254" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578514556361" />
-    <state width="1877" height="254" key="GridCell.Tab.0.center" timestamp="1578514556360">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1579731723129">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579731723129" />
     <state width="1877" height="254" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578514556360" />
-    <state width="1877" height="254" key="GridCell.Tab.0.left" timestamp="1578514556360">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1579731723129">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579731723129" />
     <state width="1877" height="254" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578514556360" />
-    <state width="1877" height="254" key="GridCell.Tab.0.right" timestamp="1578514556360">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1579731723129">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579731723129" />
     <state width="1877" height="254" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578514556360" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1578158794571">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -267,6 +290,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="95" key="SettingsEditor/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578510226679" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1579726819245">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579726819245" />
     <state x="665" y="414" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1577732990297">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -287,6 +314,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="702" y="149" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1536.920@0.0.1920.1040" timestamp="1578158293207" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1579728473536">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1579728473536" />
   </component>
   <component name="com.vaadin.designer2.intellij.settings.SizePresetsSettingsComponent">
     <option name="sizePresets">

@@ -2,28 +2,30 @@ package auction.catalog;
 
 import auction.bidder.Bidder;
 import auction.domain.AuctionStatus;
+import auction.domain.Bid;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 //all in one thread
 public class Auction implements Runnable {
-    private long duration;
-    private int sec;
     private LocalTime endTime;
     private AuctionStatus status;
     private AuctionItem item;
     private Thread thread;
     private PropertyChangeSupport changeSupport;
+    private List<Bidder> bidders = new ArrayList<Bidder>();
+    private Bid currentBid = null;
 
-    public Auction(AuctionItem auctionItem, int i) {
-        this.item = auctionItem;
+    public Auction(LocalTime endTime, AuctionItem item) {
+        this.endTime = endTime;
+        this.status = AuctionStatus.CREATED;
+        this.item = item;
         this.changeSupport = new PropertyChangeSupport(this);
-    }
-
-    public long getDuration() {
-        return duration;
     }
 
     public LocalTime getEndTime() {
@@ -34,31 +36,32 @@ public class Auction implements Runnable {
         return status;
     }
 
+    private void setStatus(AuctionStatus s) {
+        AuctionStatus oldStatus = this.status;
+        this.status = s;
+        this.changeSupport.firePropertyChange("status", oldStatus, this.status);
+    }
+
     public AuctionItem getItem() {
         return item;
+    }
+
+    public Bid getCurrentBid() {
+        return currentBid;
     }
 
     public final boolean isRunning() {
         return thread != null;
     }
 
-   /* public Auction(LocalTime endTime, AuctionItem item) {
-        this.endTime = endTime;
-        this.status = AuctionStatus.CREATED;
-        this.item = item;
-    }*/
-
     /***
      * change status from not-active to active
      */
     public void start() {
-        if (thread == null) {
-            thread = new Thread(this);
-            thread.setDaemon(true);
-            thread.start();
-            status = AuctionStatus.CREATED;
-            changeSupport.firePropertyChange("start", "", getRemainingTime());
-        }
+        assert thread == null;
+        thread = new Thread(this);
+        thread.setDaemon(true);
+        thread.start();
     }
 
     /***
@@ -66,57 +69,65 @@ public class Auction implements Runnable {
      * else return duration
      */
     public long getRemainingTime() {
-        if (status.equals(AuctionStatus.CREATED)) {
-            //change status
-            status = AuctionStatus.RUNNING;
-            LocalTime remainingTime = LocalTime.now();
-            duration = remainingTime.getSecond();
-            endTime = remainingTime.plusMinutes(1);
-            return duration;
-        } else {
-            return Long.parseLong(null);
-        }
-
+        return Math.max(0, LocalTime.now().until(endTime, ChronoUnit.SECONDS));
     }
 
     /**
      * stop the thread and change the status
      */
     public void end() {
-        if (thread != null) {
-            thread = null;
-            status = AuctionStatus.ENDED;
+        assert thread != null;
+        thread = null;
+        this.setStatus(AuctionStatus.ENDED);
+    }
+
+    public void register(Bidder bidder) {
+        //creo un nuovo tipo che vuole puntare (può essere umano o robot)
+        //salvo nella lista il bidder
+        this.bidders.add(bidder);
+    }
+
+    public void bid(Bidder b, double amount) throws InvalidBidException {
+        // Ist die Auktion am Laufen?
+        if (this.status != AuctionStatus.RUNNING) {
+            throw new InvalidBidException();
         }
-        changeSupport.firePropertyChange("end", "", getRemainingTime());
-    }
-
-    public Bidder register(Bidder bidder) {
-        //creo un nuovo tipo che vuole puntare(può essere umano o robot)
-        return bidder;
-    }
-
-    public Bidder bid(Bidder b, double amount) {
-        //devo salvare l'offerta che ho fatto
-
-        return b;
+        // Ist das Gebot mindestens so hoch wie der minimale Preis des Objekts?
+        if (this.item.getMinimumPrice() > amount) {
+            throw new InvalidBidException();
+        }
+        // Ist das Gebot höher als das aktuelle Gebot (wenn vorhanden)?
+        if (this.currentBid != null && this.currentBid.getAmount() > amount) {
+            throw new InvalidBidException();
+        }
+        // devo salvare l'offerta che ho fatto
+        Bid oldBid = this.currentBid;
+        this.currentBid = new Bid(b, amount);
+        this.changeSupport.firePropertyChange("bid", oldBid, this.currentBid);
+        for (Bidder aBidder : this.bidders) {
+            aBidder.auctionChanged();
+        }
     }
 
     @Override
     public void run() {
-        while (thread != null) {
+        setStatus(AuctionStatus.RUNNING);
+        long oldRemainingTime = this.getRemainingTime();
+        while (oldRemainingTime > 0) {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                //
+                e.printStackTrace();
             }
-            if (thread != null) {
-                duration++;
-                changeSupport.firePropertyChange("time", "", getRemainingTime());
-            }
+            long remainingTime = this.getRemainingTime();
+            this.changeSupport.firePropertyChange("remainingTime", oldRemainingTime, remainingTime);
+            oldRemainingTime = remainingTime;
         }
-
+        assert oldRemainingTime == 0;
+        this.end();
     }
 
+    //il controller dice ti sto ascoltando
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         changeSupport.addPropertyChangeListener(listener);
     }
