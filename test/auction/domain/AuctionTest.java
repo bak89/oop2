@@ -68,15 +68,15 @@ public class AuctionTest {
     @Test
     public void testRemainingTime() throws InterruptedException {
         auction.start();
-       // assertEquals(10, auction.getRemainingTime(), 1);
+        assertEquals(10, auction.getRemainingTime(), 1);
     }
 
     @Test
     public void testBid() throws InvalidBidException {
         auction.start();
         auction.bid(bidder, 100.0);
-        //assertEquals(bidder, auction.getCurrentBid().getBidder());
-        //assertEquals(100.0, auction.getCurrentBid().getAmount(), 0.0);
+        assertEquals(bidder, auction.getCurrentBid().getBidder());
+        assertEquals(100.0, auction.getCurrentBid().getAmount(), 0.0);
     }
 
     public void testBidBeforeAuctionStarted() throws InvalidBidException {
