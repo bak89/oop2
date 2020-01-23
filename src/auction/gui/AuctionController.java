@@ -5,6 +5,7 @@ import auction.catalog.AuctionCatalog;
 import auction.catalog.AuctionCatalogDAO;
 import auction.catalog.AuctionItem;
 import auction.domain.AuctionStatus;
+import auction.domain.Bid;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -40,7 +41,6 @@ public class AuctionController implements PropertyChangeListener {
         catalog.getItems().forEach(item -> auctionItems.getItems().add(item));
         auctionItems.getSelectionModel().select(0);
         startAuctionButton.setOnAction(click -> {
-            startAuctionButton.setDisable(true);
             startAuction();
         });
     }
@@ -51,12 +51,8 @@ public class AuctionController implements PropertyChangeListener {
         LocalTime endTime = LocalTime.now().plusMinutes(1);
         AuctionItem selectedAuctionItem = auctionItems.getSelectionModel().getSelectedItem();
         this.auction = new Auction(endTime, selectedAuctionItem);
+        this.render();
         this.auction.addPropertyChangeListener(this);
-
-        this.endTime.setText(endTime.toString());
-        this.status.setText(String.valueOf(this.auction.getStatus()));
-        this.remTime.setText(String.valueOf(this.auction.getRemainingTime()));
-
         this.auction.start();
     }
 
@@ -71,24 +67,29 @@ public class AuctionController implements PropertyChangeListener {
 
     }
 
+    private void render() {
+        if (this.auction != null) {
+            this.endTime.setText(this.auction.getEndTime().toString());
+            this.status.setText(String.valueOf(this.auction.getStatus()));
+            this.remTime.setText(String.valueOf(this.auction.getRemainingTime()));
+            boolean isRunning = this.auction.getStatus() == AuctionStatus.RUNNING;
+            this.startAuctionButton.setDisable(isRunning);
+            this.placeBidButton.setDisable(!isRunning);
+            Bid currentBid = this.auction.getCurrentBid();
+            if (currentBid != null) {
+                this.currentBid.setText(currentBid.toString());
+            } else {
+                this.currentBid.setText("No one");
+            }
+        } else {
+            this.startAuctionButton.setDisable(false);
+            this.placeBidButton.setDisable(true);
+        }
+    }
+
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        Platform.runLater(() -> {
-            switch (evt.getPropertyName()) {
-                case "status":
-                    this.status.setText(evt.getNewValue().toString());
-                    this.startAuctionButton.setDisable(evt.getNewValue() == AuctionStatus.RUNNING);
-                    this.placeBidButton.setDisable(evt.getNewValue() != AuctionStatus.RUNNING);
-                    break;
-                case "remainingTime":
-                    this.remTime.setText(evt.getNewValue().toString());
-                    break;
-                case "bid":
-                    this.currentBid.setText(evt.getNewValue().toString());
-                    break;
-            }
-        });
-
+        Platform.runLater(this::render);
     }
 
 }
